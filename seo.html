@@ -625,6 +625,10 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
   .tier-flag{right:auto;left:50%;transform:translateX(-50%)}
 }
 
+/* SEO hero: flip horizontally so the subject sits on the right,
+   leaving the left half clear for the headline overlay */
+.hero-video--flip{transform:scaleX(-1)}
+
 /* Nav cross-link to the other lander variant */
 .nav-cross{
   font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
@@ -732,8 +736,8 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
 <!-- ============ HERO (Alt Banner — scroll-scrubbed video) ============ -->
 <section class="hero-stage" id="top">
   <div class="hero-pin">
-    <video class="hero-video" muted playsinline preload="auto" poster="assets/hero-poster.jpg" aria-hidden="true">
-      <source src="assets/hero.mp4" type="video/mp4" />
+    <video class="hero-video hero-video--flip" muted playsinline preload="auto" poster="assets/seo-hero-poster.jpg" aria-hidden="true">
+      <source src="assets/seo-hero.mp4" type="video/mp4" />
     </video>
     <div class="hero-scrim"></div>
     <div class="hero-grid">
