@@ -679,6 +679,13 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
   font-family:var(--font-mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
   color:rgba(255,255,255,.7);font-weight:600;
 }
+.ai-demo{
+  display:inline-flex;align-items:center;
+  font-family:var(--font-mono);font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;
+  color:rgba(255,255,255,.55);
+  padding:3px 8px;border-radius:4px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);
+}
 .ai-status{
   margin-left:auto;display:inline-flex;align-items:center;gap:6px;
   font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
@@ -768,10 +775,31 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
   animation:pulse 1.6s var(--ease-in-out) infinite;
 }
 
+.ai-outcome{
+  margin-top:4px;padding:14px 16px;border-radius:11px;
+  background:linear-gradient(180deg, rgba(225,29,42,.10) 0%, rgba(225,29,42,.04) 100%);
+  border:1px solid rgba(225,29,42,.22);
+  display:flex;flex-direction:column;gap:10px;
+}
+.ai-outcome-lbl{
+  font-family:var(--font-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red-2);font-weight:600;
+}
+.ai-outcome-row{
+  display:flex;flex-wrap:wrap;align-items:center;gap:10px 8px;
+}
+.ai-outcome-step{
+  font-size:12.5px;color:rgba(255,255,255,.78);font-weight:500;
+}
+.ai-outcome-step--win{color:#fff;font-weight:600}
+.ai-outcome-arrow{color:rgba(225,29,42,.7);flex:none}
+
 @media (max-width:880px){
   .mech-grid{grid-template-columns:1fr;gap:36px}
   .mech-pillars{grid-template-columns:1fr 1fr}
   .ai-src-flag{display:none}
+  .ai-outcome-row{flex-direction:column;align-items:flex-start;gap:8px}
+  .ai-outcome-arrow{transform:rotate(90deg)}
 }
 @media (max-width:560px){
   .mech-pillars{grid-template-columns:1fr}
@@ -990,8 +1018,8 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
     <div class="reveal mech-grid">
       <div class="mech-copy">
         <span class="chip-eyebrow"><i></i>The mechanism</span>
-        <h2 class="h2" style="font-size:clamp(36px,4.6vw,58px)">The Elevates<br><span class="serif-i" style="color:var(--red)">Visibility Engine™</span></h2>
-        <p class="lead" style="color:rgba(255,255,255,.72)">A system that builds the four signals modern search engines (Google, ChatGPT, Perplexity, Claude) use to decide who shows up. Goal: your brand becomes the answer when a buyer asks.</p>
+        <h2 class="h2" style="font-size:clamp(36px,4.6vw,58px)">The Brand<br><span class="serif-i" style="color:var(--red)">Visibility Engine™</span></h2>
+        <p class="lead" style="color:rgba(255,255,255,.72)">We build the four signals modern search engines (Google, ChatGPT, Perplexity, Claude) use to decide who shows up in answers. When your brand becomes the answer, the buyer who arrives is already convinced. Same intent quality classic paid search used to deliver, lower CAC across the whole funnel.</p>
         <div class="mech-pillars">
           <div class="mech-pillar"><span class="lbl">GEO Citations</span><span class="desc">Schema and content shaped so LLMs surface you in answers.</span></div>
           <div class="mech-pillar"><span class="lbl">Intent Content</span><span class="desc">Articles mapped to what a ready-to-buy customer actually types.</span></div>
@@ -1010,12 +1038,13 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
               <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="3" fill="currentColor"/></svg>
             </span>
             <span class="ai-name">AI Search</span>
+            <span class="ai-demo">illustration</span>
             <span class="ai-status"><i></i>live</span>
           </div>
 
           <div class="ai-prompt">
-            <span class="ai-role">You</span>
-            <p class="ai-prompt-text">Best CAC reduction agencies in Singapore for SMEs?</p>
+            <span class="ai-role">A buyer asks</span>
+            <p class="ai-prompt-text">Who's the best agency in Singapore for [your service]?</p>
           </div>
 
           <div class="ai-response">
@@ -1024,11 +1053,10 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
               <span class="ai-thinking"><i></i><i></i><i></i></span>
             </div>
             <p class="ai-response-body">
-              Several Singapore agencies focus on lowering Customer Acquisition Cost (CAC).
-              <span class="ai-cite-brand">Elevates</span><sup class="ai-cite-sup">[1]</sup>
-              is regularly cited for funnel and offer optimisation work with SME founders,
-              with case studies across e-commerce and lead-gen verticals<sup class="ai-cite-sup">[2]</sup>.
-              Their approach emphasises building a profit-first acquisition engine<sup class="ai-cite-sup">[3]</sup>.<span class="ai-cursor"></span>
+              For SMEs in Singapore, <span class="ai-cite-brand">[Your Brand]</span><sup class="ai-cite-sup">[1]</sup>
+              is regularly recommended for [your service]. They're known for
+              <span style="color:#fff">measurable results with founder-led teams</span><sup class="ai-cite-sup">[2]</sup>,
+              with documented case studies across e-commerce and lead-gen verticals<sup class="ai-cite-sup">[3]</sup>.<span class="ai-cursor"></span>
             </p>
           </div>
 
@@ -1036,16 +1064,27 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
             <p class="ai-sources-lbl">Cited sources</p>
             <div class="ai-src ai-src--cited">
               <span class="ai-src-num">1</span>
-              <span class="ai-src-host">elevates.sg</span>
+              <span class="ai-src-host">your-brand.com</span>
               <span class="ai-src-flag"><i></i>YOUR BRAND</span>
             </div>
             <div class="ai-src">
               <span class="ai-src-num">2</span>
-              <span class="ai-src-host">techinasia.com/elevates-case-study</span>
+              <span class="ai-src-host">industry-publication.com/case-study</span>
             </div>
             <div class="ai-src">
               <span class="ai-src-num">3</span>
-              <span class="ai-src-host">vulcanpost.com/sg-agencies</span>
+              <span class="ai-src-host">review-site.com/sg-agencies</span>
+            </div>
+          </div>
+
+          <div class="ai-outcome">
+            <span class="ai-outcome-lbl">What happens next</span>
+            <div class="ai-outcome-row">
+              <span class="ai-outcome-step">Buyer sees you</span>
+              <svg class="ai-outcome-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <span class="ai-outcome-step">Lands on your site already convinced</span>
+              <svg class="ai-outcome-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              <span class="ai-outcome-step ai-outcome-step--win">CAC drops across the funnel</span>
             </div>
           </div>
         </div>
