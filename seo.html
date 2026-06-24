@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Elevates SEO + GEO — Get Cited by AI. Get Found by Buyers.</title>
-<meta name="description" content="Singapore's only SEO + GEO system built by operators. Get cited by ChatGPT, Perplexity & Google AI — and turn organic visibility into paying customers." />
+<title>Elevates SEO + GEO. Get Cited by AI. Get Found by Buyers.</title>
+<meta name="description" content="An SEO + GEO system built by operators in Singapore. Get cited by ChatGPT, Perplexity and Google AI, then turn organic visibility into paying customers." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700;1,800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -215,11 +215,9 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
   transition:transform 260ms var(--ease-out), box-shadow 260ms var(--ease-out);
 }
 .alert-card::before{
-  content:counter(alert,decimal-leading-zero);
-  flex:none;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.16em;
-  color:var(--red);background:rgba(225,29,42,.08);
-  width:30px;height:30px;border-radius:999px;display:flex;align-items:center;justify-content:center;
-  margin-top:2px;
+  content:"";flex:none;width:10px;height:10px;border-radius:999px;
+  background:var(--red);box-shadow:0 0 0 4px rgba(225,29,42,.12);
+  margin-top:8px;
 }
 .alert-card .ic{display:none}
 .alert-card p{font-size:15.5px;color:var(--ink);font-weight:500;line-height:1.45}
@@ -629,6 +627,159 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
    leaving the left half clear for the headline overlay */
 .hero-video--flip{transform:scaleX(-1)}
 
+/* ============================================================
+   MECHANISM — redesigned: AI answer card mockup + pillar list
+   ============================================================ */
+.mech-grid{
+  display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,5vw,72px);
+  align-items:start;
+}
+.mech-copy{display:flex;flex-direction:column;gap:22px;max-width:540px}
+.mech-pillars{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px 22px;margin-top:6px;
+}
+.mech-pillar{
+  display:flex;flex-direction:column;gap:4px;
+  padding:14px 0 14px 16px;border-left:1px solid rgba(255,255,255,.08);
+}
+.mech-pillar .lbl{
+  font-family:var(--font-sans);font-weight:600;font-size:14.5px;color:#fff;letter-spacing:-.005em;
+}
+.mech-pillar .desc{
+  font-family:var(--font-sans);font-size:12.5px;color:rgba(255,255,255,.6);line-height:1.5;
+}
+
+/* Right side: AI answer card */
+.mech-viz{position:relative;padding-top:6px}
+.ai-card{
+  background:linear-gradient(180deg, #0c1729 0%, #050b15 100%);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;padding:clamp(22px,2.4vw,30px);
+  box-shadow:
+    0 40px 80px -40px rgba(0,0,0,.7),
+    0 0 0 1px rgba(225,29,42,.04),
+    inset 0 1px 0 rgba(255,255,255,.04);
+  display:flex;flex-direction:column;gap:18px;
+  position:relative;overflow:hidden;
+  font-family:var(--font-sans);
+}
+.ai-card::after{
+  /* subtle red edge glow on the cited side */
+  content:"";position:absolute;left:-1px;top:30%;bottom:30%;width:2px;
+  background:linear-gradient(180deg, transparent, var(--red), transparent);
+  opacity:.55;filter:blur(.5px);
+}
+
+.ai-card-head{
+  display:flex;align-items:center;gap:10px;
+  padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.06);
+}
+.ai-logo{color:rgba(255,255,255,.55);display:inline-flex}
+.ai-name{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.7);font-weight:600;
+}
+.ai-status{
+  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);
+}
+.ai-status i{width:6px;height:6px;border-radius:999px;background:#5dd39e;animation:pulse 1.6s var(--ease-in-out) infinite}
+
+.ai-prompt, .ai-response{display:flex;flex-direction:column;gap:8px}
+.ai-role{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);font-weight:600;
+}
+.ai-prompt-text{
+  font-size:15px;color:rgba(255,255,255,.92);line-height:1.45;
+  padding:12px 14px;border-radius:10px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);
+}
+
+.ai-response-head{display:flex;align-items:center;gap:10px}
+.ai-thinking{display:inline-flex;gap:3px}
+.ai-thinking i{
+  width:4px;height:4px;border-radius:999px;background:rgba(255,255,255,.45);
+  animation:thinking 1.4s ease-in-out infinite;
+}
+.ai-thinking i:nth-child(2){animation-delay:.18s}
+.ai-thinking i:nth-child(3){animation-delay:.36s}
+@keyframes thinking{
+  0%,80%,100%{opacity:.25;transform:translateY(0)}
+  40%{opacity:1;transform:translateY(-2px)}
+}
+
+.ai-response-body{
+  font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.6;
+  font-feature-settings:"liga";
+}
+.ai-cite-brand{
+  color:#fff;font-weight:600;
+  background:linear-gradient(180deg, transparent 78%, rgba(225,29,42,.45) 78%, rgba(225,29,42,.45) 95%, transparent 95%);
+  padding:0 1px;
+}
+.ai-cite-sup{
+  font-family:var(--font-mono);font-size:9.5px;font-weight:600;color:var(--red-2);
+  vertical-align:super;line-height:0;margin:0 1px 0 2px;letter-spacing:.04em;
+}
+.ai-cursor{
+  display:inline-block;width:7px;height:14px;background:var(--red);
+  vertical-align:-3px;margin-left:3px;
+  animation:caret 1s steps(2) infinite;
+}
+@keyframes caret{50%{opacity:0}}
+
+.ai-sources{
+  display:flex;flex-direction:column;gap:8px;margin-top:4px;
+  padding-top:16px;border-top:1px solid rgba(255,255,255,.06);
+}
+.ai-sources-lbl{
+  font-family:var(--font-mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);margin-bottom:2px;
+}
+.ai-src{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 12px;border-radius:9px;
+  background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.05);
+  font-size:13px;color:rgba(255,255,255,.65);
+  transition:transform .25s var(--ease-out);
+}
+.ai-src-num{
+  font-family:var(--font-mono);font-size:10.5px;font-weight:600;color:rgba(255,255,255,.4);
+  width:18px;height:18px;display:flex;align-items:center;justify-content:center;
+  border-radius:999px;background:rgba(255,255,255,.06);
+}
+.ai-src-host{font-family:var(--font-mono);letter-spacing:.01em;flex:1}
+.ai-src--cited{
+  background:linear-gradient(180deg, rgba(225,29,42,.10) 0%, rgba(225,29,42,.03) 100%);
+  border-color:rgba(225,29,42,.32);
+  color:#fff;
+  box-shadow:0 0 0 1px rgba(225,29,42,.18), 0 18px 36px -22px rgba(225,29,42,.4);
+}
+.ai-src--cited .ai-src-num{background:var(--red);color:#fff}
+.ai-src-flag{
+  display:inline-flex;align-items:center;gap:7px;margin-left:auto;
+  font-family:var(--font-mono);font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--red-2);
+}
+.ai-src-flag i{
+  width:6px;height:6px;border-radius:999px;background:var(--red);
+  animation:pulse 1.6s var(--ease-in-out) infinite;
+}
+
+@media (max-width:880px){
+  .mech-grid{grid-template-columns:1fr;gap:36px}
+  .mech-pillars{grid-template-columns:1fr 1fr}
+  .ai-src-flag{display:none}
+}
+@media (max-width:560px){
+  .mech-pillars{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .ai-thinking i,.ai-status i,.ai-src-flag i,.ai-cursor{animation:none!important}
+}
+
 /* Nav cross-link to the other lander variant */
 .nav-cross{
   font-family:var(--font-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
@@ -741,9 +892,9 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
     <div class="hero-scrim"></div>
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow" data-hero="1">SEO + GEO — Built By Operators, Not Agencies</p>
+        <p class="eyebrow" data-hero="1">SEO + GEO. Built By Operators, Not Agencies</p>
         <h1 data-hero="2">If AI Doesn't Cite You,<br>You're <span class="serif-i">Invisible.</span></h1>
-        <p class="hero-sub" data-hero="3">Singapore's only SEO + GEO system built by founders who actually run businesses. Get cited by ChatGPT, Perplexity, and Google AI — and turn that visibility into paying customers.</p>
+        <p class="hero-sub" data-hero="3">An SEO and GEO system built by founders who actually run businesses. Get cited by ChatGPT, Perplexity, and Google AI, then turn that visibility into paying customers.</p>
         <div class="hero-cta-row" data-hero="4">
           <a href="#cta" class="btn btn--light">Book Your Strategy Session
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -762,7 +913,7 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
       <h2 class="h2">If you've tried SEO in the last 12 months,<br><span class="serif-i" style="color:var(--red)">you've probably noticed this:</span></h2>
     </div>
     <div class="card-grid cols-2 problem-grid" data-stagger style="max-width:880px;margin:0 auto">
-      <div class="alert-card"><p>Google AI Overviews are eating your clicks — even on page 1</p></div>
+      <div class="alert-card"><p>Google AI Overviews are eating your clicks, even on page 1</p></div>
       <div class="alert-card"><p>Your customers are asking ChatGPT and Perplexity, and your name never comes up</p></div>
       <div class="alert-card"><p>Cheap "$500 a month" agencies pump out content nobody reads, much less buys</p></div>
       <div class="alert-card"><p>You rank for keywords… but the traffic doesn't turn into customers</p></div>
@@ -833,59 +984,70 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
   </div>
 </section>
 
-<!-- ============ MECHANISM ============ -->
+<!-- ============ MECHANISM (redesigned: AI answer card mockup) ============ -->
 <section class="section section--wide section--navy" style="background:linear-gradient(180deg, var(--navy) 0%, var(--navy-900) 100%);overflow:hidden;position:relative">
   <div class="wrap" style="position:relative;z-index:2">
-    <div class="reveal" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,80px);align-items:center">
-      <div style="display:flex;flex-direction:column;gap:22px;max-width:520px">
+    <div class="reveal mech-grid">
+      <div class="mech-copy">
         <span class="chip-eyebrow"><i></i>The mechanism</span>
         <h2 class="h2" style="font-size:clamp(36px,4.6vw,58px)">The Elevates<br><span class="serif-i" style="color:var(--red)">Visibility Engine™</span></h2>
-        <p class="lead" style="color:rgba(255,255,255,.72)">A proprietary system that gets you <span class="num" style="color:#fff;font-weight:600">cited by AI</span> and <span class="num" style="color:#fff;font-weight:600">found by buyers</span>. We build the four signals every search engine — Google, ChatGPT, Perplexity, Claude — now uses to decide who shows up.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px">
-          <div style="display:flex;flex-direction:column;gap:4px">
-            <span class="num" style="font-size:32px;font-weight:600;color:#fff;letter-spacing:-.02em">+<span data-count="124">124</span>%</span>
-            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5)">Avg organic growth (YoY)</span>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:4px">
-            <span class="num" style="font-size:32px;font-weight:600;color:#fff;letter-spacing:-.02em">+<span data-count="47">47</span></span>
-            <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.5)">AI citations / quarter</span>
-          </div>
+        <p class="lead" style="color:rgba(255,255,255,.72)">A system that builds the four signals modern search engines (Google, ChatGPT, Perplexity, Claude) use to decide who shows up. Goal: your brand becomes the answer when a buyer asks.</p>
+        <div class="mech-pillars">
+          <div class="mech-pillar"><span class="lbl">GEO Citations</span><span class="desc">Schema and content shaped so LLMs surface you in answers.</span></div>
+          <div class="mech-pillar"><span class="lbl">Intent Content</span><span class="desc">Articles mapped to what a ready-to-buy customer actually types.</span></div>
+          <div class="mech-pillar"><span class="lbl">Technical Foundation</span><span class="desc">Crawl, index, schema, Core Web Vitals fixed and maintained.</span></div>
+          <div class="mech-pillar"><span class="lbl">Topical Authority</span><span class="desc">Site architecture that signals expertise to engines and readers.</span></div>
         </div>
         <p class="mech-not-by-by">
           <span class="lbl">NOT_BY:</span> <span class="val">"pumping out 100 blog posts a month"</span><br>
           <span class="lbl">BY:</span> <span class="val val--strong">making your brand the answer AI gives</span>
         </p>
       </div>
-      <div class="engine" aria-hidden="true">
-        <svg viewBox="-100 -100 200 200">
-          <circle class="ring ring--soft" cx="0" cy="0" r="92"/>
-          <circle class="ring ring--soft dash dash--rev" cx="0" cy="0" r="78"/>
-          <circle class="ring" cx="0" cy="0" r="64"/>
-          <circle class="ring ring--red dash" cx="0" cy="0" r="50" stroke-width="1.6"/>
-          <circle class="ring" cx="0" cy="0" r="36"/>
-          <g class="engine-ticks" stroke="rgba(255,255,255,.18)" stroke-width="1">
-            <line x1="0" y1="-92" x2="0" y2="-86"/>
-            <line x1="0" y1="92"  x2="0" y2="86"/>
-            <line x1="-92" y1="0" x2="-86" y2="0"/>
-            <line x1="92"  y1="0" x2="86"  y2="0"/>
-            <line x1="65" y1="-65" x2="61" y2="-61"/>
-            <line x1="-65" y1="65" x2="-61" y2="61"/>
-            <line x1="65"  y1="65" x2="61"  y2="61"/>
-            <line x1="-65" y1="-65" x2="-61" y2="-61"/>
-          </g>
-        </svg>
-        <div class="orbit orbit--a"><span class="dot"></span></div>
-        <div class="orbit orbit--b"><span class="dot"></span></div>
-        <div class="engine-core">
-          <span class="lbl">AI Citations</span>
-          <span class="val num"><span data-count="47">47</span></span>
-          <span class="delta">▲ 6 in 30 days</span>
-        </div>
-        <div class="engine-chips">
-          <span class="engine-chip"><i></i>GEO</span>
-          <span class="engine-chip"><i></i>Intent</span>
-          <span class="engine-chip"><i></i>Technical</span>
-          <span class="engine-chip"><i></i>Authority</span>
+      <div class="mech-viz" aria-hidden="true">
+        <div class="ai-card">
+          <div class="ai-card-head">
+            <span class="ai-logo">
+              <svg viewBox="0 0 20 20" width="14" height="14" fill="currentColor"><circle cx="10" cy="10" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="10" cy="10" r="3" fill="currentColor"/></svg>
+            </span>
+            <span class="ai-name">AI Search</span>
+            <span class="ai-status"><i></i>live</span>
+          </div>
+
+          <div class="ai-prompt">
+            <span class="ai-role">You</span>
+            <p class="ai-prompt-text">Best CAC reduction agencies in Singapore for SMEs?</p>
+          </div>
+
+          <div class="ai-response">
+            <div class="ai-response-head">
+              <span class="ai-role">Answer</span>
+              <span class="ai-thinking"><i></i><i></i><i></i></span>
+            </div>
+            <p class="ai-response-body">
+              Several Singapore agencies focus on lowering Customer Acquisition Cost (CAC).
+              <span class="ai-cite-brand">Elevates</span><sup class="ai-cite-sup">[1]</sup>
+              is regularly cited for funnel and offer optimisation work with SME founders,
+              with case studies across e-commerce and lead-gen verticals<sup class="ai-cite-sup">[2]</sup>.
+              Their approach emphasises building a profit-first acquisition engine<sup class="ai-cite-sup">[3]</sup>.<span class="ai-cursor"></span>
+            </p>
+          </div>
+
+          <div class="ai-sources">
+            <p class="ai-sources-lbl">Cited sources</p>
+            <div class="ai-src ai-src--cited">
+              <span class="ai-src-num">1</span>
+              <span class="ai-src-host">elevates.sg</span>
+              <span class="ai-src-flag"><i></i>YOUR BRAND</span>
+            </div>
+            <div class="ai-src">
+              <span class="ai-src-num">2</span>
+              <span class="ai-src-host">techinasia.com/elevates-case-study</span>
+            </div>
+            <div class="ai-src">
+              <span class="ai-src-num">3</span>
+              <span class="ai-src-host">vulcanpost.com/sg-agencies</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -905,7 +1067,7 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
         <p class="label">Instead of asking:</p>
         <div class="ask-q">"How do we rank for more keywords?"</div>
         <p class="label strong">We ask:</p>
-        <div class="ask-a">"What does a ready-to-buy customer Google, type into ChatGPT, or ask Perplexity right before they pull out their credit card — and how do we be the answer?"</div>
+        <div class="ask-a">"What does a ready-to-buy customer Google, type into ChatGPT, or ask Perplexity right before they pull out their credit card? And how do we become the answer?"</div>
       </div>
     </div>
   </div>
@@ -1004,7 +1166,7 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
   <div class="wrap">
     <div class="head-block reveal">
       <h2 class="h2" style="font-size:clamp(26px,3.2vw,38px)">The Elevates <span class="serif-i" style="color:var(--red)">Difference</span></h2>
-      <p class="lead">We're operators wearing the SEO hat — not an SEO shop pretending to understand growth.</p>
+      <p class="lead">We're operators wearing the SEO hat, not an SEO shop pretending to understand growth.</p>
     </div>
     <div class="split" style="max-width:980px;margin:0 auto">
       <div class="reveal">
@@ -1114,7 +1276,7 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
           <span class="role"><span class="dot"></span>Head of Acquisition</span>
           <div class="m-name">Kennedy</div>
           <p>With over 7 years in performance marketing, Kennedy brings deep operational and growth expertise to the team. He built and scaled his own e-commerce brand to seven figures within its first year, before going on to coach more than 1,000 students in e-commerce and Facebook Ads.</p>
-          <p>Having worked across a wide range of industries, niches, and budgets, Kennedy has developed sharp pattern recognition for what drives results — and what causes campaigns to break.</p>
+          <p>Having worked across a wide range of industries, niches, and budgets, Kennedy has developed sharp pattern recognition for what drives results, and what causes campaigns to break.</p>
           <p>Today, he applies that insight to streamline operations, optimize performance, and support scalable growth for every Elevates client.</p>
         </div>
       </div>
@@ -1125,7 +1287,7 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
           <div class="m-name">Hervy</div>
           <p>Hervy leads growth at Elevates, combining large-scale performance marketing with full-funnel brand building. He has worked with leading health and wellness brands such as Organifi, Synaptigen, and Mitolyn, contributing to nearly $200M in affiliate-driven revenue across high-spend, compliance-heavy environments.</p>
           <p>Beyond affiliate, Hervy has also driven growth for local brands, including Biohackk, where he helped generate around $20M in revenue.</p>
-          <p>His expertise spans funnel strategy, positioning, paid acquisition, and lead-to-consult systems — executed with a strong focus on CAC efficiency and long-term scalability.</p>
+          <p>His expertise spans funnel strategy, positioning, paid acquisition, and lead-to-consult systems, executed with a strong focus on CAC efficiency and long-term scalability.</p>
         </div>
       </div>
     </div>
@@ -1168,7 +1330,7 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
         <div
           data-tf-widget="Kffv650s"
           data-tf-opacity="100"
-          data-tf-iframe-props="title=Elevates — Book Your Strategy Session"
+          data-tf-iframe-props="title=Elevates: Book Your Strategy Session"
           data-tf-transitive-search-params
           data-tf-medium="snippet"
           class="typeform-embed"
@@ -1192,7 +1354,7 @@ h1,h2,h3{font-family:var(--font-serif);font-weight:700;line-height:1.08;letter-s
       <img class="mark" style="width:24px;height:24px;object-fit:contain" src="assets/logo.png" alt="" aria-hidden="true" />
       <span class="word">ELEVATES</span>
     </div>
-    <p class="mini">Performance marketing, built for profit. — Singapore</p>
+    <p class="mini">Performance marketing, built for profit. Based in Singapore.</p>
     <p class="mini">© 2026 Elevates. All rights reserved.</p>
   </div>
 </footer>
